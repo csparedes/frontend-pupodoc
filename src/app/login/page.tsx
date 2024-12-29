@@ -1,20 +1,60 @@
+"use client";
+
 import ButtonUI from "../ui/button-ui";
 import InputUI from "../ui/input-ui";
-import Link from "next/link";
+import { startTransition, useActionState } from "react";
+import { login } from "./actions";
+import { useForm } from "react-hook-form";
+import { loginSchema, LoginSchema } from "./schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { H1Icon } from "@heroicons/react/24/outline";
 
 export default function LoginPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isLoading },
+  } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema) });
+
+  const [state, formAction, isPending] = useActionState(login, undefined);
+
+  const onSubmitForm = handleSubmit(async (data) => {
+    console.log(data);
+    startTransition(async () => {
+      formAction(data);
+    });
+  });
+
   return (
-    <form action="" className="flex flex-col p-4 rounded-xl border">
+    <form
+      // action={formAction}
+      onSubmit={onSubmitForm}
+      className="flex flex-col p-4 rounded-xl border gap-4"
+    >
       <h3>Formulario de Login</h3>
-      <InputUI label="Usuario" placeholder="Ingrese su usuario" />
+      <InputUI
+        label="Email"
+        name="email"
+        register={register}
+        defaultValue=""
+        error={errors.email?.message}
+      />
       <InputUI
         label="Password"
-        placeholder="Ingrese su password"
+        name="password"
+        register={register}
         type="password"
+        defaultValue=""
+        error={errors?.password?.message}
       />
-      <ButtonUI type="submit">
-        <Link href={"/dashboard"}>Login</Link>
-      </ButtonUI>
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <ButtonUI type="submit">Login</ButtonUI>
+      )}
+      {state?.errorMessage && (
+        <h1 className="text-red-400 text-md">{state.errorMessage}</h1>
+      )}
     </form>
   );
 }
