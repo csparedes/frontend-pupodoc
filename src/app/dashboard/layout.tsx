@@ -1,4 +1,4 @@
-import NavbarUI from "../ui/sidebar-ui";
+import NavbarUI from "../ui/NavbarUI";
 
 interface Props {
   children: React.ReactNode;

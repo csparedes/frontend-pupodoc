@@ -15,6 +15,10 @@ const testUser = {
 export async function login(prevState: any, formData: any) {
   const result = loginSchema.safeParse(formData);
 
+  setTimeout(() => {
+    console.log("Pls delete this")
+  }, 3000);
+
   if (!result.success) {
     return {
       errors: result.error.flatten().fieldErrors,

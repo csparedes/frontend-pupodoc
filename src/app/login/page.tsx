@@ -1,13 +1,13 @@
 "use client";
 
-import ButtonUI from "../ui/button-ui";
-import InputUI from "../ui/input-ui";
+import ButtonUI from "../ui/ButtonUI";
+import InputUI from "../ui/InputUI";
 import { startTransition, useActionState } from "react";
 import { login } from "./actions";
 import { useForm } from "react-hook-form";
 import { loginSchema, LoginSchema } from "./schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { H1Icon } from "@heroicons/react/24/outline";
+
 
 export default function LoginPage() {
   const {
@@ -31,7 +31,7 @@ export default function LoginPage() {
       onSubmit={onSubmitForm}
       className="flex flex-col p-4 rounded-xl border gap-4"
     >
-      <h3>Formulario de Login</h3>
+      <h3 className="text-lg font-semibold">Formulario de Login</h3>
       <InputUI
         label="Email"
         name="email"
