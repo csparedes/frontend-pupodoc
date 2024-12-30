@@ -1,7 +1,7 @@
 "use client";
 
-import ButtonUI from "../ui/ButtonUI";
-import InputUI from "../ui/InputUI";
+import ButtonUI from "../../components/Button";
+import InputUI from "../../components/Input";
 import { startTransition, useActionState } from "react";
 import { login } from "./actions";
 import { useForm } from "react-hook-form";
