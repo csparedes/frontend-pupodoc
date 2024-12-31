@@ -1,7 +1,7 @@
 import EventCalendar from "@/components/EventCalendar";
 import { Ellipsis, Telescope } from "lucide-react";
 
-export default function LoginPage() {
+export default function DashboardPage() {
   return (
     <div className="p-4 flex gap-4 flex-col md:flex-row ">
       <div className="w-full md:w-2/3 ">

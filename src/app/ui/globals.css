@@ -32,6 +32,10 @@ body {
   font-weight: 600;
 }
 
+.react-calendar__tile{
+  padding: 8px !important;
+}
+
 .react-calendar__tile--active {
   background-color: #c3ebfa !important;
   border-radius: 8px !important;
@@ -42,6 +46,7 @@ body {
   justify-content: center !important;
   align-items: center !important;
   gap: 4px !important;
+  height: 40px !important;
 }
 
 .react-calendar__navigation__label{
@@ -52,4 +57,12 @@ body {
 .react-calendar__navigation__arrow{
   border-radius: 8px !important;
   width: 24px !important;
+}
+
+
+.react-calendar__month-view__weekdays {
+  /* Weekday labels */
+  font-weight: bold;
+  font-size: small;
+  /* text-transform: uppercase; */
 }
