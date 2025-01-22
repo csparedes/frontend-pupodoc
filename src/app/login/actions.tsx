@@ -13,11 +13,8 @@ const testUser = {
 
 
 export async function login(prevState: any, formData: any) {
+  
   const result = loginSchema.safeParse(formData);
-
-  setTimeout(() => {
-    console.log("Pls delete this")
-  }, 3000);
 
   if (!result.success) {
     return {
@@ -27,6 +24,7 @@ export async function login(prevState: any, formData: any) {
 
   const { email, password } = result.data;
 
+  // TODO: replace this with a real authentication
   if (email !== testUser.email || password !== testUser.password) {
     console.log("Wrong credentials")    
     return {

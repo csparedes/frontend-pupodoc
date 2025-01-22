@@ -4,7 +4,7 @@ import Table from "@/components/Table";
 import TablePagination from "@/components/TablePagination";
 import TableSearch from "@/components/TableSearch";
 import { requirementsData } from "@/lib/data";
-import { ArrowDownAZ, Ellipsis, SlidersHorizontal } from "lucide-react";
+import { ArrowDownAZ, Ellipsis, Plus, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 
 type Requirement = {
@@ -129,6 +129,9 @@ export default function RequirementsListPage() {
       </td>
     </tr>
   );
+
+
+  // 
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       {/* TOP */}
@@ -142,6 +145,9 @@ export default function RequirementsListPage() {
             </button>
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200">
               <ArrowDownAZ className="w-4 h-4" />
+            </button>
+            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200">
+              <Plus className="w-4 h-4" />
             </button>
             {/* {role === "admin" && (
               // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
